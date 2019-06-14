@@ -8,11 +8,6 @@ import {Link} from "react-router-dom";
 class PriceBetHome extends Component {
 
 
-    constructor(props) {
-        super(props)
-
-    }
-
 
     render() {
         const config = this.props.store.PriceBet.config;
