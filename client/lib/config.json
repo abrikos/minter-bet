@@ -32,8 +32,12 @@
         }
       ],
       "address": "Mx72d57ab7a5134fc5b016026dfb97af76cfb50814"
+    },
+    "seaWar": {
+      "bet": 10
     }
   },
+  "websocket":{"host": "ws.minter-bet.ru","port": 8080},
   "mainNet": {
     "chainId": 1,
     "explorerUrl": "https://explorer.minter.network",

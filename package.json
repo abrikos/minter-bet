@@ -90,6 +90,7 @@
     "react-datetime": "^2.16.3",
     "react-dev-utils": "^6.1.1",
     "react-dom": "^16.6.1",
+    "react-highcharts": "latest",
     "react-i18next": "^8.4.0",
     "react-jsx-highcharts": "^3.5.0",
     "react-loopback": "^0.4.0",
@@ -118,8 +119,7 @@
     "webpack-manifest-plugin": "2.0.4",
     "websocket": "^1.0.28",
     "with-query": "^1.1.2",
-    "workbox-webpack-plugin": "3.6.3",
-    "react-highcharts": "latest"
+    "workbox-webpack-plugin": "3.6.3"
   },
   "scripts": {
     "start": "NODE_PATH=. node scripts/start.js",
