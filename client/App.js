@@ -12,7 +12,7 @@ class App extends Component {
 
     constructor(props) {
         super(props);
-        let language = i18n.language.indexOf('ru') !== -1 ? 'ru' : 'en';
+        let language = i18n.language && i18n.language.indexOf('ru') !== -1 ? 'ru' : 'en';
         this.state = {language};
         this.history = props.history || createHistory(this.props);
         this.history.listen((location, action) => {
