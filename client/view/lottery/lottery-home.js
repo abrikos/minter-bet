@@ -12,7 +12,6 @@ class LotteryHome extends Component {
 
     constructor(props) {
         super(props)
-        console.log('zzzzzzzzzzz',this.props)
     }
 
 
