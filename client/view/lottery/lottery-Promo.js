@@ -23,7 +23,6 @@ class LotteryPromo extends Component {
     url = new URL(window.location.href)
 
     render() {
-        const data = this.props.store.Lottery.config;
         const page = <div>
             {this.props.language==='ru' && lotteryContentRu(this.props.store.Lottery.config)}
             {this.props.language==='en' && lotteryContentEn(this.props.store.Lottery.config)}
