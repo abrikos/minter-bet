@@ -32,7 +32,7 @@ client.onmessage = function(e) {
     }
 };
 
-class SeaWarLayout extends React.Component {
+class FillerLayout extends React.Component {
 
     constructor(props) {
         super(props);
@@ -57,4 +57,4 @@ class SeaWarLayout extends React.Component {
     }
 }
 
-export default SeaWarLayout;
+export default FillerLayout;

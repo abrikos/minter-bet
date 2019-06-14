@@ -1,0 +1,22 @@
+.filer {
+  width: 400px; }
+  .filer td {
+    max-width: 20px;
+    height: 20px;
+    border: 1px solid silver;
+    opacity: 0.6;
+    cursor: pointer;
+    font-size: 0.5em; }
+  .filer td.red {
+    background-color: red; }
+  .filer td.green {
+    background-color: green; }
+  .filer td.blue {
+    background-color: blue; }
+  .filer td.player {
+    border-color: black;
+    opacity: 1; }
+  .filer td.over {
+    opacity: 1; }
+
+/*# sourceMappingURL=filler.css.map */

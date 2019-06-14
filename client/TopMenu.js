@@ -67,7 +67,12 @@ class TopMenu extends React.Component {
         ];
         const pbetItems = [
             {path: '/price-bet', label: t('Intro'), show: true},
-            {path: '/price-bet/create', label: t('Create bet'), show: true},
+            {path: '/price-bet/create', label: t('Create'), show: true},
+        ];
+        const fillerItems = [
+            {path: '/filler', label: t('Intro'), show: true},
+            {path: '/filler/create', label: t('Create'), show: true},
+            {path: '/filler/play', label: t('Play'), show: true},
         ];
         return (
             <Navbar color="dark" dark expand="md">
@@ -75,6 +80,12 @@ class TopMenu extends React.Component {
                 <NavbarToggler onClick={e=>this.menuPulled = !this.menuPulled} />
                 <Collapse isOpen={this.menuPulled} navbar>
                     <Nav className="ml-auto" navbar>
+                        <UncontrolledDropdown nav inNavbar>
+                            <DropdownToggle nav caret>
+                                {t('Filler')}
+                            </DropdownToggle>
+                            <DropdownMenu>{fillerItems.map(this.dropDownItem)}</DropdownMenu>
+                        </UncontrolledDropdown>
                         <UncontrolledDropdown nav inNavbar>
                             <DropdownToggle nav caret>
                                 {t('Price bet')}

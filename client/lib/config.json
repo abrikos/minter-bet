@@ -33,11 +33,15 @@
       ],
       "address": "Mx72d57ab7a5134fc5b016026dfb97af76cfb50814"
     },
-    "seaWar": {
-      "bet": 10
+    "filler": {
+      "cols": 10,
+      "rows": 10,
+      "bet": 10,
+      "address": "Mx31e03f60080385b453f6ce8a2939f410649c4273"
     }
   },
   "websocket":{"host": "ws.minter-bet.ru","port": 8080},
+  "consoleUrl": "https://console.minter-bet.ru",
   "mainNet": {
     "chainId": 1,
     "explorerUrl": "https://explorer.minter.network",
