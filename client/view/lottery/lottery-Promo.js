@@ -3,13 +3,12 @@ import {Input, InputGroup, InputGroupAddon, InputGroupText} from "reactstrap";
 import {inject, observer} from "mobx-react";
 import {action, observable} from "mobx";
 import lotteryRulesRu from "./lang/lottery-rules-ru";
+import lotteryContentRu from "./lang/lottery-rules-ru";
 import lotteryRulesEn from "./lang/lottery-rules-en";
+import lotteryContentEn from "./lang/lottery-rules-en";
 import LotteryLayout from "./lottery-Layout";
-import lotteryContentEn from "./lang/lottery-rules-en"
-import lotteryContentRu from "./lang/lottery-rules-ru"
 
 import {t} from "client/Translator";
-import lotteryHomeRu from "./lang/lottery-home-ru";
 
 @inject('store') @observer
 class LotteryPromo extends Component {

@@ -58,7 +58,7 @@ export default function (data) {
     </ ul>
 
 
-        <a name={'rules'}>
+        <a id={'rules'}>
             <h4> All that is <span className = {'red'}> below </ span> can be called "Lottery Terms and Conditions" </ h4>
         </a></div>
 }

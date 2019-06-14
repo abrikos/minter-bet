@@ -10,11 +10,6 @@ import lotteryHomeRu from "./lang/lottery-home-ru"
 class LotteryHome extends Component {
 
 
-    constructor(props) {
-        super(props)
-    }
-
-
     render() {
         const page = <div>
             {this.props.language==='ru' && lotteryHomeRu(this.props.store.Lottery.config)}
