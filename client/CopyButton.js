@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
 import {faCopy} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {Popover, PopoverBody, PopoverHeader} from "reactstrap";
+import {Popover, PopoverHeader} from "reactstrap";
 import {observer} from "mobx-react";
 import {observable} from "mobx";
 import {t} from './Translator';
 import md5 from 'md5';
-
-const mt = require('client/lib/MinterTransactions');
-const MinterTransactions = mt.default;
 
 
 @observer
