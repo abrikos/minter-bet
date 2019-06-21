@@ -56,49 +56,38 @@ class TopMenu extends React.Component {
     };
 
     render() {
-        const menuItems = [
-            {path: '/', label: t('Home'), show: true},
-        ];
-        const lotteryItems = [
-            {path: '/lottery', label: t('Intro'), show: true},
-            {path: '/lottery/members', label: t('Members'), show: true},
-            {path: '/lottery/winners', label: t('Winners'), show: true},
-            {path: '/lottery/codes', label: t('Valid promo-codes'), show: true},
-        ];
-        const pbetItems = [
-            {path: '/price-bet', label: t('Intro'), show: true},
-            {path: '/price-bet/create', label: t('Create'), show: true},
-        ];
-        const fillerItems = [
-            {path: '/filler', label: t('Intro'), show: true},
-            {path: '/filler/create', label: t('Create'), show: true},
-            {path: '/filler/play', label: t('Play'), show: true},
-        ];
+
+        const menuItems = {
+            'Lottery':[
+                {path: '/lottery', label: t('Intro'), show: true},
+                {path: '/lottery/members', label: t('Members'), show: true},
+                {path: '/lottery/winners', label: t('Winners'), show: true},
+                {path: '/lottery/codes', label: t('Valid promo-codes'), show: true},
+            ],
+            'Price bet':[
+                {path: '/price-bet', label: t('Intro'), show: true},
+                {path: '/price-bet/create', label: t('Create bet'), show: true},
+            ],
+            'Filer':[
+                {path: '/filler', label: t('Intro'), show: true},
+                {path: '/filler/create', label: t('Create'), show: true},
+                {path: '/filler/play', label: t('Play'), show: true},
+            ]
+        };
         return (
             <Navbar color="dark" dark expand="md">
                 <NavbarBrand href='javascript:void(0)' onClick={e => this.props.history.push('/')} className='mr-auto'><img src={logo} alt={'logo'}/> {this.props.store.config.appName}</NavbarBrand>
                 <NavbarToggler onClick={e=>this.menuPulled = !this.menuPulled} />
                 <Collapse isOpen={this.menuPulled} navbar>
                     <Nav className="ml-auto" navbar>
-                        <UncontrolledDropdown nav inNavbar>
+                        {this.navItem({path: '/', label: t('Home'), show: true})}
+
+                        {Object.keys(menuItems).map((menu,i) => <UncontrolledDropdown nav inNavbar key={i}>
                             <DropdownToggle nav caret>
-                                {t('Filler')}
+                                {t(menu)}
                             </DropdownToggle>
-                            <DropdownMenu>{fillerItems.map(this.dropDownItem)}</DropdownMenu>
-                        </UncontrolledDropdown>
-                        <UncontrolledDropdown nav inNavbar>
-                            <DropdownToggle nav caret>
-                                {t('Price bet')}
-                            </DropdownToggle>
-                            <DropdownMenu>{pbetItems.map(this.dropDownItem)}</DropdownMenu>
-                        </UncontrolledDropdown>
-                        <UncontrolledDropdown nav inNavbar>
-                            <DropdownToggle nav caret>
-                                {t('Lottery')}
-                            </DropdownToggle>
-                            <DropdownMenu>{lotteryItems.map(this.dropDownItem)}</DropdownMenu>
-                        </UncontrolledDropdown>
-                        {menuItems.map(this.navItem)}
+                            <DropdownMenu>{menuItems[menu].map(this.dropDownItem)}</DropdownMenu>
+                        </UncontrolledDropdown>)}
 
 
                         <UncontrolledDropdown nav inNavbar>
