@@ -42,7 +42,7 @@ class MinterWallet {
             return await minterSDK.postTx(txParams)
         } catch (error) {
             //const errorMessage = error.response.data ? error.response.data.error : error;
-            console.error('ERROR', error);
+            console.error('ERROR', error.response.data.error);
         }
     };
 

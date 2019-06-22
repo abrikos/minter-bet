@@ -3,14 +3,15 @@ const MinterTransactions = m.default;
 const  LZUTF8 = require('lzutf8');
 
 class FillerTransactions {
-    types={
-        turn:'turn',
-        start:'start',
-        accept:'accept',
-    }
+
     constructor() {
         this.config = MinterTransactions.config.games.filler;
         this.config.coin = MinterTransactions.config[MinterTransactions.config.net].symbol;
+        this.types={
+            turn:'turn',
+            start:'start',
+            accept:'accept',
+        }
 
     }
 

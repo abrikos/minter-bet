@@ -28,7 +28,7 @@ class LotteryTransactions {
         }
 
         this.transactionsDay = lastDate ? this.transactions.filter(t => t.txn > lastDate) : this.transactions;
-        this.transactionsIn = this.transactionsDay.filter(t => t.from !== this.config.address);
+        this.transactionsIn = this.transactionsDay.filter(t => t.from !== this.config.address && t.message!=='gift');
         this.transactionsOut = this.transactionsDay.filter(t => t.from === this.config.address);
         this.transactionsWinners = this.transactions.filter(t => t.from === this.config.address && t.message && t.message.type === this.WinnerType);
 

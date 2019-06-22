@@ -14,7 +14,7 @@ class Lottery{
 
 
     async init() {
-        this.counter = new Date().valueOf();
+        await LotteryLib.init();
         await MinterTransactions.loadTtransactions(this.address);
     }
 

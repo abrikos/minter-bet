@@ -14,6 +14,7 @@ class MinterTransactions {
     async loadTtransactions(address) {
         //this.transactions = await this.getTransactionsList().catch(e => console.log(e));
         const list = await this.explorer(`/addresses/${address}/transactions`)
+
         const transactions = list.map(tx => {
             const message = this.decode(tx.payload);
             tx.value = parseFloat(tx.data.value);
