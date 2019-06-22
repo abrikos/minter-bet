@@ -12,6 +12,9 @@ class FillerTransactions {
         this.tranasctions = await MinterTransactions.loadTtransactions(this.config.address);
     }
 
+    newField(){
+
+    }
 
 }
 
