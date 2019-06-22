@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 echo $1 $2
-cd /home/abrikos/minter-daily2
+cd /home/abrikos/minter-bet
 
 case "${1}" in
 "minute" )
