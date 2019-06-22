@@ -42,7 +42,7 @@ class Routes extends React.Component {
 
                 <Route path='/filler' exact render={props=><FillerIntro language={this.props.language} {...props}/>}/>
                 <Route path='/filler/create' render={props=><FillerCreate language={this.props.language} {...props}/>}/>
-                <Route path='/filler/play' render={props=><FillerPlay language={this.props.language} {...props}/>}/>
+                <Route path='/filler/play/:game/:player' render={props=><FillerPlay language={this.props.language} {...props}/>}/>
 
             </Switch>
         </>;

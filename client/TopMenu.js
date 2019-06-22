@@ -68,11 +68,11 @@ class TopMenu extends React.Component {
                 {path: '/price-bet', label: t('Intro'), show: true},
                 {path: '/price-bet/create', label: t('Create bet'), show: true},
             ],
-            'Filler':[
+            /*'Filler':[
                 {path: '/filler', label: t('Intro'), show: true},
                 {path: '/filler/create', label: t('Create'), show: true},
                 {path: '/filler/play', label: t('Play'), show: true},
-            ]
+            ]*/
         };
         return (
             <Navbar color="dark" dark expand="md">
@@ -80,6 +80,10 @@ class TopMenu extends React.Component {
                 <NavbarToggler onClick={e=>this.menuPulled = !this.menuPulled} />
                 <Collapse isOpen={this.menuPulled} navbar>
                     <Nav className="ml-auto" navbar>
+                        {/*{this.navItem({path: '/filler/play/1/a', label: t('Filler Player A'), show: true})}
+                        {this.navItem({path: '/filler/play/1/b', label: t('Filler Player B'), show: true})}*/}
+
+
                         {this.navItem({path: '/', label: t('Home'), show: true})}
 
                         {Object.keys(menuItems).map((menu,i) => <UncontrolledDropdown nav inNavbar key={i}>

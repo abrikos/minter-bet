@@ -1,27 +1,32 @@
 const config = require('./config');
 const fs = require('fs');
 const axios = require('axios');
+const FillerTransactions = require('./FillerTransactions');
 
 class Cell {
 
     constructor(obj) {
-        this.row = obj.row;
-        this.col = obj.col;
-        this.color = obj.color;
-        this.idx = obj.idx;
+        Object.assign(this, obj)
     }
 
     getClass() {
         return this.color
             + ' ' + (this.player ? 'player' : '')
             + ' ' + ((this.over) ? 'over' : '')
+            + ' ' + ((this.captured) ? 'captured' : '')
+    }
+
+    getId(){
+        return `cell-${this.row}-${this.col}`
     }
 }
 
 
 class FillerGame {
     constructor() {
+        this.config = config.games.filler;
         this.field = [];
+        this.capturedCells = [];
         this.colors = ['red', 'green', 'blue'];
         this.checkCoordinates = [[0, -1], [-1, 0], [0, 1], [1, 0]];
 
@@ -34,8 +39,12 @@ class FillerGame {
 
     }
 
+    createCell(cell) {
+        return new Cell(cell);
+    }
+
     newField() {
-        this.config = config.games.filler;
+
         for (let i = 0; i < this.config.rows * this.config.cols; i++) {
             let row = Math.floor(i / this.config.cols);
             let col = i % this.config.cols;
@@ -50,31 +59,49 @@ class FillerGame {
         return this.field;
     };
 
+
     saveField() {
-        fs.writeFile('./build/filler-test-field.json', JSON.stringify(this.field),console.log);
+        fs.writeFile('./build/filler-test-field.json', JSON.stringify(this.field), console.log);
     };
 
-    async readField  ()  {
+    async getFromFile() {
         try {
-            const res = await axios(`http://minter-bet/filler-test-field.json`)
-            return res.data.data
+            const res = await axios(`http://minter-bet.pro/filler-test-field.json`);
+            return res.data
         } catch (e) {
             return console.error(e)
         }
+    }
 
+    async readField() {
+        return this.field = await this.getFromFile();
     };
 
 
-    cellClick  (cell)  {
+    captureCells(cell) {
         if (!this.isNearPlayer(cell)) return;
-        this.field.filter(c => c.color === cell.color && !c.player).map(c => this.isNearPlayer(c, true));
-        this.field.map(c => c.over = false)
+        this.findCapturedCells(cell);
+        this.capturedCells.map(c=>this.field[c.idx].player=true);
     };
 
 
-    getRandomColor ()  {
+    getRandomColor() {
         return this.colors[Math.floor(Math.random() * this.colors.length)]
     };
+
+    findCapturedCells(cell) {
+        if(this.capturedCells.find(c=>c.idx===cell.idx)) return;
+        this.capturedCells.push(cell)
+        for (const check of this.checkCoordinates) {
+            const c = this.getCell(cell.row + check[0], cell.col + check[1]);
+            if (!c || c.player) continue;
+            if (c.color === cell.color) this.findCapturedCells(c)
+        }
+    }
+
+    clearCapturedCells() {
+        this.capturedCells = [];
+    }
 
 
     isNearPlayer(cell, mark) {
@@ -82,15 +109,12 @@ class FillerGame {
         for (const check of this.checkCoordinates) {
             const c = this.getCell(cell.row + check[0], cell.col + check[1]);
             if (!c) continue;
-            if (c.player) {
-                if (mark) cell.player = true;
-                return true;
-            }
+            if (c.player) return true;
             //if(c.color===cell.color) console.log(c)
         }
     }
 
-    getCell (row, col)  {
+    getCell(row, col) {
         if (row < 0 || col < 0) return;
         const idx = row * this.config.cols + col;
         if (idx > this.field.length) return;

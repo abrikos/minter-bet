@@ -65,6 +65,7 @@
     "loopback-ds-timestamp-mixin": "^3.4.1",
     "loopback-nodejs-client": "^1.5.5",
     "loopback-socket": "^0.4.2",
+    "lzutf8": "^0.5.5",
     "mini-css-extract-plugin": "0.4.3",
     "minter-js-sdk": "^0.16.0",
     "minterjs-wallet": "^3.0.3",
