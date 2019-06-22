@@ -23,7 +23,6 @@ class Cell extends React.Component {
     getClass = () => {
         return this.color
             + ' ' + (this.player ? 'player' : '')
-            + ' ' + ((this.border && !this.player) ? 'border' : '')
             + ' ' + ((this.over) ? 'over' : '')
     }
 }
@@ -70,28 +69,27 @@ class FillerPlay extends React.Component {
 
     cellClick = (cell) => {
         if (!this.isNearPlayer(cell)) return;
-        const matched = this.field.filter(c => c.color === cell.color && !c.player).filter(c=>this.isNearPlayer(c));
-        for (const c of matched) {
-            c.player = true;
-        }
+        const matched = this.field.filter(c => c.color === cell.color && !c.player).filter(c=>this.isNearPlayer(c, true));
         this.field.map(c=>c.over=false)
     };
 
-    isNearPlayer(cell) {
-        if(cell.player) return false;
-        //console.log(cell)
-        let isNear = false;
+    isNearPlayer(cell,mark) {
+        //if(cell.player && !mark) return false;
         for (const check of this.checkCoordinates) {
             const c = this.getCell(cell.row + check[0], cell.col + check[1]);
-            if (c && c.player) isNear = true;
+            if(!c) continue;
+            if (c.player){
+                if(mark) cell.player = true;
+                return true;
+            }
+            //if(c.color===cell.color) console.log(c)
         }
-        return isNear;
     }
 
     mouseEnter = (cell) => {
 
         if (!this.isNearPlayer(cell) || cell.player) return;
-        const matched = this.field.filter(c => c.color === cell.color);
+        const matched = this.field.filter(c => c.color === cell.color && !c.player);
 
         for (const c of matched) {
             c.over = true;
