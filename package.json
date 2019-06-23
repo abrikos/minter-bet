@@ -101,7 +101,7 @@
     "react-vis": "^1.11.5",
     "react-web3": "^1.0.0",
     "react-widgets": "^4.4.8",
-    "reactstrap": "^6.5.0",
+    "reactstrap": "^8.0.0",
     "recharts": "^1.4.2",
     "resolve": "1.8.1",
     "sass-loader": "7.1.0",

@@ -64,9 +64,10 @@ class TopMenu extends React.Component {
                 {path: '/lottery/winners', label: t('Winners'), show: true},
                 {path: '/lottery/codes', label: t('Valid promo-codes'), show: true},
             ],
-            'Price bet':[
-                {path: '/price-bet', label: t('Intro'), show: true},
-                {path: '/price-bet/create', label: t('Create bet'), show: true},
+            'Price bets':[
+                //{path: '/price-bets', label: t('Intro'), show: true},
+                {path: '/price-bets/active', label: t('Active bets'), show: true},
+                {path: '/price-bets/create', label: t('Create bet'), show: true},
             ],
             /*'Filler':[
                 {path: '/filler', label: t('Intro'), show: true},

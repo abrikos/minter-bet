@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import {inject} from 'mobx-react';
-import {Card, CardBody, CardSubtitle, CardText, CardTitle} from "reactstrap";
 import 'client/css/App.css';
 import 'client/css/minter.css';
-import {t} from 'client/Translator'
+import LotteryCard from "./lottery-card";
 
 @inject('store')
 class LotteryLayout extends Component {
@@ -25,15 +24,7 @@ class LotteryLayout extends Component {
                         <div className={'col-md-4'}>
 
 
-                            <Card>
-                                <CardBody>
-                                    <CardTitle>{t('Lottery')} </CardTitle>
-                                    <CardSubtitle>{t('Prize on')} {new Date().toLocaleDateString()}: </CardSubtitle>
-                                    <strong className={'big5'}>{this.balance}</strong> {this.props.store.coin}
-                                    <CardText>{t('Members count')}: <strong className={'red'}>{this.players}</strong></CardText>
-                                    <CardText>{t('Minimal bet')}: <strong className={'red'}>{this.props.store.Lottery.config.price}</strong> {this.props.store.coin} </CardText>
-                                </CardBody>
-                            </Card>
+                            <LotteryCard/>
 
 
                         </div>

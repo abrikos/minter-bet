@@ -38,7 +38,7 @@ class CopyButton extends Component {
 
         return <span>
             <FontAwesomeIcon size={this.props.size} icon={faCopy} onClick={e => this.copyToClipboard(this.props.text)}
-                             style={{cursor: 'pointer', color: '#555'}} id={this.id}/>
+                             style={{cursor: 'pointer', color: '#555'}} id={this.id} title={this.props.text}/>
             <Popover placement={'right'}
                      isOpen={this.showPopOver}
                      target={this.id} toggle={this.toggle}>

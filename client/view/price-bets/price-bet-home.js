@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {inject, observer} from "mobx-react";
 import PriceBetLayout from "./price-bet-Layout";
 import {Link} from "react-router-dom";
-
+import {t} from "client/Translator";
 
 @inject('store') @observer
 class PriceBetHome extends Component {
@@ -14,7 +14,7 @@ class PriceBetHome extends Component {
         const page =  <div>
 
             <h3>Предлагаем Вам делать ставки на стоимость криптовалют в выбранный Вами день.</h3>
-            Для этого необходимо на <Link to={'/price-bet/create'} className={'red'}>странице создания ставки</Link> выбрать
+            Для этого необходимо на <Link to={'/price-bets/create'} className={'red'}>странице создания ставки</Link> выбрать
             <ul>
                 <li>Криптовалютную пару</li>
                 <li>Дату проверки цены</li>

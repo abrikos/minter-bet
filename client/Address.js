@@ -21,8 +21,8 @@ class Address extends Component {
     render() {
 
         return <span>
-            <a href={this.linkToAddress} className={'big2'} target={'_blank'}><strong>{this.props.text}</strong></a>&nbsp;
-            <CopyButton text={this.props.text} size={'2x'}/>
+            <a href={this.linkToAddress} className={'red'} target={'_blank'}><strong>{this.props.text}</strong></a>&nbsp;
+            <CopyButton text={this.props.text} size={'1x'}/>
         </span>
     }
 }

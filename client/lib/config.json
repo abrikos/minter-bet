@@ -16,7 +16,8 @@
       }
     },
     "priceBet": {
-      "name": "Price Bet",
+      "percent": 0.9,
+      "name": "Price Bets",
       "pairs": [
         {
           "from": "BTC",

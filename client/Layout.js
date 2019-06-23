@@ -15,7 +15,7 @@ class Layout extends Component {
         return <div>
             <TopMenu app={props.app}/>
             {/*<Alert toggle={this.onDismiss} {...alertProps}/>*/}
-            <div className={'container-fluid py-2'}>
+            <div className={'container py-2'}>
                 <Routes store={this.store} {...props}/>
             </div>
             <footer className="footer">
