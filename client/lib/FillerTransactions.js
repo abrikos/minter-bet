@@ -1,6 +1,6 @@
 const m = require('./MinterTransactions');
 const MinterTransactions = m.default;
-const  LZUTF8 = require('lzutf8');
+//const  LZUTF8 = require('lzutf8');
 
 class FillerTransactions {
 
