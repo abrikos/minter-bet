@@ -3,7 +3,6 @@ import TopMenu from "client/TopMenu";
 import {withRouter} from "react-router";
 import Routes from "client/Routes";
 import {t} from "client/Translator";
-import i18n from "client/i18n";
 import {inject} from "mobx-react";
 
 
