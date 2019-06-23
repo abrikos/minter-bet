@@ -11,7 +11,8 @@ class LotteryTransactions {
 
     async init() {
 
-        this.transactions = await MinterTransactions.loadTtransactions(this.config.address);
+        const txs = await MinterTransactions.loadTtransactions(this.config.address);
+        this.transactions = txs.txAll;
         const dayMarks = this.transactions.filter(tx => tx.message && tx.message.type === this.WinnerType);
         let lastDate;
 
