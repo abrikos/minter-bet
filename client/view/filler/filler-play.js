@@ -51,7 +51,8 @@ class FillerPlay extends React.Component {
     mouseLeave = () => {
         this.field.map(c => {
             c.over = false;
-            c.captured = false
+            c.captured = false;
+            return 0;
         });
         Filler.clearCapturedCells()
     };
