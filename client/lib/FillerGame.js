@@ -1,7 +1,6 @@
 const config = require('./config');
 const fs = require('fs');
 const axios = require('axios');
-const FillerTransactions = require('./FillerTransactions');
 
 class Cell {
 
@@ -48,7 +47,7 @@ class FillerGame {
         for (let i = 0; i < this.config.rows * this.config.cols; i++) {
             let row = Math.floor(i / this.config.cols);
             let col = i % this.config.cols;
-            const color = this.testField[row] && this.testField[row][col] || this.getRandomColor();
+            const color = this.testField[row] && (this.testField[row][col] || this.getRandomColor());
             const cell = new Cell({idx: i, row, col, color});
             this.field.push(cell);
         }

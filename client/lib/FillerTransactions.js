@@ -21,7 +21,7 @@ class FillerTransactions {
 
     async compressMessage(message){
         const input = Buffer.from(JSON.stringify(message), 'base64');
-        const x = LZUTF8.compress(JSON.stringify(message),{outputEncoding:'Base64'})
+        //const x = LZUTF8.compress(JSON.stringify(message),{outputEncoding:'Base64'})
         console.log(input.toString('Base64'))
         return 'zlib.deflate(input)'
     }
