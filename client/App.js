@@ -7,7 +7,7 @@ import './css/App.css';
 import './css/minter.css';
 import Layout from "client/Layout";
 import i18n from 'i18next';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 class App extends Component {
 
     constructor(props) {
