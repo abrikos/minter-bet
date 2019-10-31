@@ -116,7 +116,7 @@
     "web3": "^1.0.0-beta.37",
     "webpack": "4.19.1",
     "webpack-auto-inject-version": "^1.2.2",
-    "webpack-dev-server": "3.1.9",
+    "webpack-dev-server": "3.9.0",
     "webpack-manifest-plugin": "2.0.4",
     "websocket": "^1.0.28",
     "with-query": "^1.1.2",
